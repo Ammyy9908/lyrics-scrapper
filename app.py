@@ -12,6 +12,7 @@ def get_lyrics(track_name):
         if r.status_code == 404:
             return {"status": 404, "message": "The Lyrics you are looking for not found!"}
         source = soup(r.text, 'html.parser')
+        print(source)
         source.prettify()
     # print(source)
     # print("Break")
