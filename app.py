@@ -9,11 +9,13 @@ def get_lyrics(track_name):
     try:
         r = requests.get(f'https://gaana.com/song/{track_name}')
         print("Status From Gaana",r.status_code)
+         
         if r.status_code == 404:
             return {"status": 404, "message": "The Lyrics you are looking for not found!"}
         source = soup(r.text, 'html.parser')
        
         source.prettify()
+        return source
     # print(source)
     # print("Break")
     # print(source)
