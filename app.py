@@ -9,23 +9,24 @@ def get_lyrics(track_name):
     try:
         r = requests.get(f'https://gaana.com/song/{track_name}')
         print("Status From Gaana",r.status_code)
+        return r.text
          
-        if r.status_code == 404:
-            return {"status": 404, "message": "The Lyrics you are looking for not found!"}
-        source = soup(r.text, 'html.parser')
+        # if r.status_code == 404:
+        #     return {"status": 404, "message": "The Lyrics you are looking for not found!"}
+        # source = soup(r.text, 'html.parser')
        
-        source.prettify()
-        return source
+        # source.prettify()
+        # return source
     # print(source)
     # print("Break")
     # print(source)
-        lyric_container = source.find('div', {'class': 'data'})
-        print(source)
-        print("START")
-        print(source)
-        print("END")
-        lyric_para = lyric_container.find('p')
-        return lyric_para.text.split('\n')
+        # lyric_container = source.find('div', {'class': 'data'})
+        # print(source)
+        # print("START")
+        # print(source)
+        # print("END")
+        # lyric_para = lyric_container.find('p')
+        # return lyric_para.text.split('\n')
     except:
         return {"status": 500, "message": "There some error occurred while downloading lyrics"}
 
