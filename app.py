@@ -18,13 +18,10 @@ def get_lyrics(track_name):
     # print("Break")
     # print(source)
         lyric_container = source.find('div', {'class': 'data'})
-        print(lyric_container)
+        print(source)
         lyric_para = lyric_container.find('p')
-        
-        print(lyric_para.text.split("\n"))
         return lyric_para.text.split('\n')
-    except requests.exceptions.RequestException as e :
-        print("Error",e)
+    except:
         return {"status": 500, "message": "There some error occurred while downloading lyrics"}
 
 
