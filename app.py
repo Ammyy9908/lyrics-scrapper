@@ -19,6 +19,9 @@ def get_lyrics(track_name):
     # print(source)
         lyric_container = source.find('div', {'class': 'data'})
         print(source)
+        print("START")
+        print(source)
+        print("END")
         lyric_para = lyric_container.find('p')
         return lyric_para.text.split('\n')
     except:
