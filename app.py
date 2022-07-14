@@ -23,7 +23,8 @@ def get_lyrics(track_name):
         
         print(lyric_para.text.split("\n"))
         return lyric_para.text.split('\n')
-    except:
+    except requests.exceptions.RequestException as e :
+        print("Error",e)
         return {"status": 500, "message": "There some error occurred while downloading lyrics"}
 
 
